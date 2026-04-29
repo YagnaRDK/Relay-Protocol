@@ -1,0 +1,19 @@
+{
+  "name": "@relay/worker-daemon",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun --watch src/index.ts"
+  },
+  "dependencies": {
+    "@relay/core-sdk": "workspace:*",
+    "@relay/validation": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.13"
+  },
+  "peerDependencies": {
+    "typescript": "^6.0.3"
+  }
+}

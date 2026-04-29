@@ -1,0 +1,14 @@
+{
+  "name": "relay-protocol",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "start bun --cwd apps/web-dashboard run dev && start bun --cwd apps/worker-daemon run dev && start bun --cwd apps/requester-client run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
