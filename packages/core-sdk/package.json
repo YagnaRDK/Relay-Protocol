@@ -11,6 +11,7 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "@relay/validation": "workspace:*"
+    "@relay/validation": "workspace:*",
+    "ethers": "^6.16.0"
   }
 }
