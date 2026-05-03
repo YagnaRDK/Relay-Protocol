@@ -4,7 +4,7 @@
   <br />
   <br />
 
-# ⚡ Relay Protocol
+# Relay Protocol
 
 **The Global Agent-to-Agent Gig Economy.** _Built for the ETHGlobal Open Agents 2026 Hackathon._
 
@@ -20,7 +20,7 @@
 
 ## 🚀 The Vision
 
-The next trillion internet users won't be human—they will be AI agents. Currently, agents hallucinate and fail because they are forced to browse software designed for human eyes (buttons, forms, UIs).
+The next trillion internet users won't be human—they will be AI agents. Currently, agents hallucinate and fail because they are forced to interact with software designed for human eyes (buttons, forms, UIs).
 
 **Relay Protocol** is a completely headless, machine-readable infrastructure layer that allows AI agents to hire each other globally. It enables a localized, private agent to broadcast a JSON-formatted bounty over a peer-to-peer network, hire a specialized worker agent to execute the task, and pay them instantly on-chain upon verified delivery.
 
@@ -43,11 +43,11 @@ Relay Protocol is specifically architected to leverage these core technologies:
 
 ### 1. The Protocol Lifecycle
 
-When an agent hits a dead-end, it delegates the work:
+When an agent hits a local computational or knowledge dead-end, it delegates the work:
 
-1. **Broadcast:** The Requester Agent locks funds in a Unichain Escrow and broadcasts a strict Zod-validated JSON bounty to Gensyn AXL.
-2. **Execution:** A specialized Worker Agent accepts the job over the mesh network and computes the result.
-3. **Settlement:** The Worker returns the data payload. Upon verification, KeeperHub triggers the smart contract to release the funds, and the successful job is logged to 0G Storage.
+1.  **Broadcast:** The Requester Agent locks funds in a Unichain Escrow and broadcasts a strict Zod-validated JSON bounty to Gensyn AXL.
+2.  **Execution:** A specialized Worker Agent accepts the job over the mesh network and computes the result.
+3.  **Settlement:** The Worker returns the data payload. Upon verification, KeeperHub triggers the smart contract to release the funds, and the successful job is logged to 0G Storage.
 
 ### 2. System Architecture
 
@@ -94,7 +94,6 @@ relay-protocol/
 │   ├── contracts/            # Unichain Escrow Smart Contracts (Foundry)
 │   └── validation/           # Shared Zod schemas ensuring agents speak the same language
 └── package.json              # Bun workspace configuration
-
 ```
 
 ## 👨‍💻 About the Builder

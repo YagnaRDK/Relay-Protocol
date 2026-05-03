@@ -62,37 +62,29 @@ export class RelaySDK {
   // ==========================================
   async lockEscrow(
     taskId: string,
-    amountInUSDC: number,
+    amountInETH: number, // Changed to dynamic number
     requesterAddress: string,
   ): Promise<string | null> {
     console.log(
-      `[Unichain] Preparing to lock funds in vault ${this.config.escrowAddress}...`,
+      `[Unichain] Preparing to lock ${amountInETH} ETH in vault ${this.config.escrowAddress}...`,
     );
-
     try {
-      // 1. Connect to the blockchain
       const provider = new ethers.JsonRpcProvider(this.config.rpcUrl);
       const wallet = new ethers.Wallet(this.config.privateKey, provider);
-
-      // 2. Connect to our specific contract
       const contract = new ethers.Contract(
         this.config.escrowAddress,
         this.escrowABI,
         wallet,
       );
 
-      // 3. Format the data
-      // Convert the string UUID to a bytes32 hash so the smart contract can read it
       const taskIdBytes32 = ethers.id(taskId);
 
-      // Since we switched to Native ETH, we pretend the 5 USDC is 0.0005 ETH for testing
-      const valueToLock = ethers.parseEther("0.0005");
+      // THIS IS THE FIX: Parse the dynamic amount passed from the UI
+      const valueToLock = ethers.parseEther(amountInETH.toString());
 
-      // 4. Fire the transaction!
       const tx = await (contract as any).lockFunds(taskIdBytes32, {
         value: valueToLock,
       });
-      console.log(`[Unichain] Transaction sent! Waiting for confirmation...`);
 
       const receipt = await tx.wait();
       return receipt.hash;
